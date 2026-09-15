@@ -119,9 +119,9 @@ sol = least_squares(residuals, x0=[0.9, 0.9, 0.999], bounds=(0,1))
 
 이 값으로 그린 TMM 이론 스펙트럼(전 대역 1.50~1.60μm)은 다음과 같습니다.
 
-![TMM 이론 예측 스펙트럼](./TMM_Predicted_Through_Spectrum.png)
+![TMM 이론 예측 스펙트럼](./TMMPredictedThroughSpectrum.png)
 
-4절의 FDTD 실측 스펙트럼(`ThroughMonitor.png`, `DropMonitor.png`)과 나란히 놓고 비교해보면, λ1 한 지점으로만 캘리브레이션했음에도 불구하고 대역 전체에서 dip/peak 개수(5개)와 간격(~18nm), 위치가 FDTD 실측과 거의 일치하는 것을 눈으로 바로 확인할 수 있습니다. 이를 수치로도 확인하기 위해, 피팅에 사용하지 않은 λ2에서 TMM이 예측한 값과 FDTD 실측값을 비교했습니다.
+4절의 FDTD 실측 스펙트럼과 나란히 놓고 비교해보면, λ1 한 지점으로만 캘리브레이션했음에도 불구하고 대역 전체에서 dip/peak 개수(5개)와 간격(~18nm), 위치가 FDTD 실측과 거의 일치하는 것을 눈으로 바로 확인할 수 있습니다. 이를 수치로도 확인하기 위해, 피팅에 사용하지 않은 λ2에서 TMM이 예측한 값과 FDTD 실측값을 비교했습니다.
 
 | | Through | Drop |
 |---|---|---|
@@ -137,5 +137,6 @@ Through는 사실상 일치합니다. Drop은 dB 기준 약 1.9dB 차이가 나�
 - FDTD 공진점(λ1) 하나로 역산한 TMM 모델이, 전 대역 스펙트럼 형태 및 피팅에 쓰이지 않은 독립 채널(λ2)에서도 선형 파워 기준 0.3% 이내로 일치하여 모델의 일반화 성능을 검증했습니다.
 - 최종적으로 λ1=1.56774μm(drop 채널), λ2=1.54048μm(through 채널) 2채널 WDM 필터 설계를 완료했습니다.
 
-## 향후 방향
+## **향후 방향**
 - gap을 변수로 하는 directional coupler 모드해석을 추가해 t1, t2를 gap으로부터 직접 예측하는 완전한 a priori 모델로 확장할 예정입니다.
+- 이번 프로젝트를 확장해, radius가 서로 다른 여러 개의 Ring Resonator를 공통 through/drop bus에 직렬로 배치한 N채널 캐스케이드 MRR WDM demux로 발전시킬 계획입니다. 
